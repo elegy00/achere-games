@@ -22,8 +22,8 @@ const BaseLayout: React.FC<Props> = (props) => {
     <>
       <Header>
         <div>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          {!user && <Link to="/login">Login</Link>}
+          {!user && <Link to="/register">Register</Link>}
           {user && <Link to="/games">Games</Link>}
         </div>
         {user && (

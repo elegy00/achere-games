@@ -1,29 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import BaseLayout from './layout/BaseLayout';
-import Login from './pages/auth/Login';
-import Games from './pages/games/Games';
-import Register from './pages/auth/Register';
-import Logout from './pages/auth/Logout';
+import AuthRoutes from './pages/AuthRoutes';
+import GamesRoutes from './pages/GamesRoutes';
 
 function App() {
   return (
     <Router>
       <BaseLayout>
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/logout">
-            <Logout />
-          </Route>
-          <Route path="/games">
-            <Games />
-          </Route>
-        </Switch>
+        <>
+          <AuthRoutes />
+          <GamesRoutes />
+        </>
       </BaseLayout>
     </Router>
   );
