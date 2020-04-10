@@ -14,7 +14,6 @@ const Logout: React.FC = () => {
     <>
       <h1>Confirm Logout</h1>
       <form onSubmit={onSubmit}>
-        <span>Current user: {user?.email}</span>
         <button type="submit">Logout</button>
       </form>
     </>

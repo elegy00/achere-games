@@ -13,7 +13,6 @@ const Register: React.FC = () => {
       email,
       password
     );
-    console.log('account created', result);
   };
 
   return (
