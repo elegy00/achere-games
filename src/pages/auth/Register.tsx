@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useFirebase from '../../hooks/useFirebase';
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const { firebase } = useFirebase();
 
   const [email, setEmail] = useState('');
@@ -9,13 +9,16 @@ const Login: React.FC = () => {
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = await firebase.doSignInWithEmailAndPassword(email, password);
-    console.log('logged in', result);
+    const result = await firebase.doCreateUserWithEmailAndPassword(
+      email,
+      password
+    );
+    console.log('account created', result);
   };
 
   return (
     <>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <form onSubmit={onSubmit}>
         <input
           name="email"
@@ -31,10 +34,10 @@ const Login: React.FC = () => {
           type="password"
           placeholder="Password"
         />
-        <button type="submit">login</button>
+        <button type="submit">Sign Up</button>
       </form>
     </>
   );
 };
 
-export default Login;
+export default Register;
